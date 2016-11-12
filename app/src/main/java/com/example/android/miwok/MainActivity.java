@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
         familyTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Family Members!", Toast.LENGTH_SHORT);
-                toast.show();
+                Intent intent = new Intent(MainActivity.this, FamilyActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
         colorsTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Colors!", Toast.LENGTH_SHORT);
-                toast.show();
+                Intent intent = new Intent(MainActivity.this, ColorsActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
         phrasesTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Phrases!", Toast.LENGTH_SHORT);
-                toast.show();
+                Intent intent = new Intent(MainActivity.this, PhrasesActivity.class);
+                startActivity(intent);
             }
         });
     }
