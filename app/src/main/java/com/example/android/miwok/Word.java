@@ -7,11 +7,18 @@ package com.example.android.miwok;
  */
 public class Word {
 
-    /** Default translation */
+    /**
+     * Default translation
+     */
     private String mDefaultTranslation;
 
-    /** Miwok translation */
+    /**
+     * Miwok translation
+     */
     private String mMiwokTranslation;
+
+    //Image resource ID
+    private int mImageResourceId;
 
     public Word(String defaultTranslation, String miwokTranslation) {
         mDefaultTranslation = defaultTranslation;
@@ -19,7 +26,21 @@ public class Word {
     }
 
     /**
+     * Constructor to needed for image addition
+     *
+     * @param defaultTranslation of the word to be translated
+     * @param miwokTranslation of the word to be translated
+     * @param imageResourceId to set the image to the left of the translation
+     */
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
+        mDefaultTranslation = defaultTranslation;
+        mMiwokTranslation = miwokTranslation;
+        mImageResourceId = imageResourceId;
+    }
+
+    /**
      * Get the default translation of the word.
+     *
      * @return the default translation
      */
     public String getDefaultTranslation() {
@@ -28,9 +49,19 @@ public class Word {
 
     /**
      * Get the Miwok translation of the word.
+     *
      * @return the Miwok translation
      */
     public String getMiwokTranslation() {
         return mMiwokTranslation;
+    }
+
+    /**
+     * Method to get the image resource ID
+     *
+     * @return the image resource ID as an int
+     */
+    public int getImageResourceId() {
+        return mImageResourceId;
     }
 }

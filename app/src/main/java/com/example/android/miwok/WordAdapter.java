@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -32,6 +33,14 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         // Get the {@link AndroidFlavor} object located at this position in the list
         Word word = getItem(position);
+
+        //find the ImageView in the list_item.xml layout with the ID icon_image and set the image
+        //into this ImageView
+        ImageView imageView = (ImageView) listItemView.findViewById(R.id.icon_image);
+        imageView.setImageResource(word.getImageResourceId());
+        if (word.getImageResourceId() == null) {
+
+        }
 
         TextView defaultTranslation = (TextView) listItemView.findViewById(R.id.default_text_view);
         defaultTranslation.setText(word.getDefaultTranslation());

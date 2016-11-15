@@ -16,7 +16,7 @@ public class NumbersActivity extends AppCompatActivity {
         //create array of words to be translated
         ArrayList<Word> wordsList = new ArrayList<>();
 
-        wordsList.add(new Word("one", "lutti"));
+        wordsList.add(new Word("one", "lutti", R.drawable.number_one));
         wordsList.add(new Word("two", "otiiko"));
         wordsList.add(new Word("three", "tolookosu"));
         wordsList.add(new Word("four", "oyyisa"));
