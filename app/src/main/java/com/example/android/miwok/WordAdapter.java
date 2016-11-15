@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
 
-    public WordAdapter(Activity context, int resource,ArrayList<Word> arrayList) {
+    public WordAdapter(Activity context, int resource, ArrayList<Word> arrayList) {
         super(context, resource, arrayList);
     }
 
@@ -26,7 +26,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         View listItemView = convertView;
-        if(listItemView == null) {
+        if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item, parent, false);
         }
@@ -37,9 +37,15 @@ public class WordAdapter extends ArrayAdapter<Word> {
         //find the ImageView in the list_item.xml layout with the ID icon_image and set the image
         //into this ImageView
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.icon_image);
-        imageView.setImageResource(word.getImageResourceId());
-        if (word.getImageResourceId() == null) {
 
+        if (word.hasImage()) {
+            //Set the ImageView to the image resource specified in word
+            imageView.setImageResource(word.getImageResourceId());
+            //Make sure the view is visible
+            imageView.setVisibility(View.VISIBLE);
+        } else {
+            //Otherwise hide the ImageView
+            imageView.setVisibility(View.GONE);
         }
 
         TextView defaultTranslation = (TextView) listItemView.findViewById(R.id.default_text_view);

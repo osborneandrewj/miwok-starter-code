@@ -18,7 +18,9 @@ public class Word {
     private String mMiwokTranslation;
 
     //Image resource ID
-    private int mImageResourceId;
+    private int mImageResourceId = NO_IMAGE_PROVIDED;
+    //Used to determine if image has been provided
+    private static final int NO_IMAGE_PROVIDED = -1;
 
     public Word(String defaultTranslation, String miwokTranslation) {
         mDefaultTranslation = defaultTranslation;
@@ -63,5 +65,14 @@ public class Word {
      */
     public int getImageResourceId() {
         return mImageResourceId;
+    }
+
+    /**
+     * Method to tell an adapter whether or not there is an image associated with the list
+     *
+     * @return true if an image is attached, false if no image exists.
+     */
+    public boolean hasImage() {
+        return mImageResourceId != NO_IMAGE_PROVIDED;
     }
 }
