@@ -2,6 +2,7 @@ package com.example.android.miwok;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +18,11 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
 
-    public WordAdapter(Activity context, int resource, ArrayList<Word> arrayList) {
-        super(context, resource, arrayList);
+   private int mColorResourceId;
+
+    public WordAdapter(Activity context, ArrayList<Word> arrayList, int colorChoice) {
+        super(context, 0, arrayList);
+        mColorResourceId = colorChoice;
     }
 
     @NonNull
@@ -49,9 +53,13 @@ public class WordAdapter extends ArrayAdapter<Word> {
         }
 
         TextView defaultTranslation = (TextView) listItemView.findViewById(R.id.default_text_view);
+        //Find the color that the resource ID maps to
+        int color = ContextCompat.getColor(getContext(), mColorResourceId);
+        defaultTranslation.setBackgroundColor(color);
         defaultTranslation.setText(word.getDefaultTranslation());
 
         TextView miwokTranslation = (TextView) listItemView.findViewById(R.id.miwok_text_view);
+        miwokTranslation.setBackgroundColor(color);
         miwokTranslation.setText(word.getMiwokTranslation());
 
 

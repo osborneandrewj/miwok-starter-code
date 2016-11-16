@@ -1,5 +1,6 @@
 package com.example.android.miwok;
 
+import android.media.AudioManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -11,6 +12,8 @@ public class NumbersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Direct volume key presses to control the app's sound effects
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
         setContentView(R.layout.word_list);
 
         //create array of words to be translated
@@ -27,7 +30,7 @@ public class NumbersActivity extends AppCompatActivity {
         wordsList.add(new Word("nine", "wo'e", R.drawable.number_nine));
         wordsList.add(new Word("ten", "na'aacha", R.drawable.number_ten));
 
-        WordAdapter itemsAdapter = new WordAdapter(this, R.layout.list_item, wordsList);
+        WordAdapter itemsAdapter = new WordAdapter(this, wordsList, R.color.category_numbers);
 
         //Get a reference to the ListView
         ListView listView = (ListView)findViewById(R.id.list);
