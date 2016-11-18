@@ -16,16 +16,16 @@ public class PhrasesActivity extends AppCompatActivity {
         //create array of words to be translated
         ArrayList<Word> wordsList = new ArrayList<>();
 
-        wordsList.add(new Word("Where are you going?", "minto wuksus"));
-        wordsList.add(new Word("What is your name?", "tinnә oyaase'nә"));
-        wordsList.add(new Word("My name is...", "oyaaset..."));
-        wordsList.add(new Word("How are you feeling?", "michәksәs?"));
-        wordsList.add(new Word("I’m feeling good.", "kuchi achit"));
-        wordsList.add(new Word("Are you coming?", "әәnәs'aa?"));
-        wordsList.add(new Word("Yes, I’m coming.", "hәә’ әәnәm"));
-        wordsList.add(new Word("I’m coming.", "әәnәm"));
-        wordsList.add(new Word("Let’s go.", "yoowutis"));
-        wordsList.add(new Word("Come here.", "әnni'nem"));
+        wordsList.add(new Word("Where are you going?", "minto wuksus", 0, R.raw.phrase_where_are_you_going));
+        wordsList.add(new Word("What is your name?", "tinnә oyaase'nә", 0, R.raw.phrase_what_is_your_name));
+        wordsList.add(new Word("My name is...", "oyaaset...", 0, R.raw.phrase_my_name_is));
+        wordsList.add(new Word("How are you feeling?", "michәksәs?", 0, R.raw.phrase_how_are_you_feeling));
+        wordsList.add(new Word("I’m feeling good.", "kuchi achit", 0, R.raw.phrase_im_feeling_good));
+        wordsList.add(new Word("Are you coming?", "әәnәs'aa?", 0, R.raw.phrase_are_you_coming));
+        wordsList.add(new Word("Yes, I’m coming.", "hәә’ әәnәm", 0, R.raw.phrase_yes_im_coming));
+        wordsList.add(new Word("I’m coming.", "әәnәm", 0, R.raw.phrase_im_coming));
+        wordsList.add(new Word("Let’s go.", "yoowutis", 0, R.raw.phrase_lets_go));
+        wordsList.add(new Word("Come here.", "әnni'nem", 0, R.raw.phrase_come_here));
 
         WordAdapter itemsAdapter = new WordAdapter(this, wordsList, R.color.category_phrases);
 

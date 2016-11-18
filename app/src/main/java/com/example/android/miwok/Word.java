@@ -26,17 +26,13 @@ public class Word {
     //Used to determine if a sound has been provided
     private static final int NO_SOUND_PROVIDED = -1;
 
-    public Word(String defaultTranslation, String miwokTranslation) {
-        mDefaultTranslation = defaultTranslation;
-        mMiwokTranslation = miwokTranslation;
-    }
-
     /**
+     * Create a new Word object
      * Constructor to needed for image addition
      *
      * @param defaultTranslation of the word to be translated
      * @param miwokTranslation of the word to be translated
-     * @param imageResourceId to set the image to the left of the translation
+     * @param imageResourceId to set image
      */
     public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
         mDefaultTranslation = defaultTranslation;
@@ -106,5 +102,15 @@ public class Word {
      */
     public boolean hasSound() {
         return mSoundResourceId != NO_SOUND_PROVIDED;
+    }
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mDefaultTranslation='" + mDefaultTranslation + '\'' +
+                ", mMiwokTranslation='" + mMiwokTranslation + '\'' +
+                ", mImageResourceId=" + mImageResourceId +
+                ", mSoundResourceId=" + mSoundResourceId +
+                '}';
     }
 }
