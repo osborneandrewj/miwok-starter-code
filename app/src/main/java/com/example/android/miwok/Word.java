@@ -21,6 +21,10 @@ public class Word {
     private int mImageResourceId = NO_IMAGE_PROVIDED;
     //Used to determine if image has been provided
     private static final int NO_IMAGE_PROVIDED = -1;
+    //Sound resource ID
+    private int mSoundResourceId = NO_SOUND_PROVIDED;
+    //Used to determine if a sound has been provided
+    private static final int NO_SOUND_PROVIDED = -1;
 
     public Word(String defaultTranslation, String miwokTranslation) {
         mDefaultTranslation = defaultTranslation;
@@ -38,6 +42,21 @@ public class Word {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mImageResourceId = imageResourceId;
+    }
+
+    /**
+     * Constructor to needed for sound addition
+     *
+     * @param defaultTranslation of the word to be translated
+     * @param miwokTranslation of the word to be translated
+     * @param imageResourceId to set the image to the left of the translation
+     * @param soundResourceId to set the sound
+     */
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId, int soundResourceId) {
+        mDefaultTranslation = defaultTranslation;
+        mMiwokTranslation = miwokTranslation;
+        mImageResourceId = imageResourceId;
+        mSoundResourceId = soundResourceId;
     }
 
     /**
@@ -74,5 +93,18 @@ public class Word {
      */
     public boolean hasImage() {
         return mImageResourceId != NO_IMAGE_PROVIDED;
+    }
+
+    public int getSoundResourceId() {
+        return mSoundResourceId;
+    }
+
+    /**
+     * Method to tell an adapter whether or not there is a sound associated with the list
+     *
+     * @return true if a sound is attached, false if no sound
+     */
+    public boolean hasSound() {
+        return mSoundResourceId != NO_SOUND_PROVIDED;
     }
 }

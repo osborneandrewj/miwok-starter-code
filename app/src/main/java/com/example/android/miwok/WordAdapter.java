@@ -1,6 +1,7 @@
 package com.example.android.miwok;
 
 import android.app.Activity;
+import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
 
+    /** Used to set color choice for activities */
    private int mColorResourceId;
 
     public WordAdapter(Activity context, ArrayList<Word> arrayList, int colorChoice) {
@@ -62,6 +65,24 @@ public class WordAdapter extends ArrayAdapter<Word> {
         miwokTranslation.setBackgroundColor(color);
         miwokTranslation.setText(word.getMiwokTranslation());
 
+        /**
+         * Code for the addition of sound when user clicks a word
+         */
+        //Create
+//        LinearLayout linearLayout = (LinearLayout)listItemView.findViewById(R.id.list_item_linearlayout);
+//        if (word.hasSound()) {
+//            //something
+//            final MediaPlayer soundPlayer = (MediaPlayer.create(getContext(), word.getSoundResourceId()));
+//            linearLayout.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    soundPlayer.start();
+//                }
+//            });
+//
+//        } else {
+//            //do nothing
+//        }
 
         //Return the list item layout with the default word and the Miwok word.
         return listItemView;
