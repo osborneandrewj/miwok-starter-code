@@ -1,9 +1,11 @@
 package com.example.android.miwok;
 
+import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -11,10 +13,18 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import static android.media.AudioManager.AUDIOFOCUS_GAIN;
+import static android.media.AudioManager.STREAM_MUSIC;
+
 public class NumbersActivity extends AppCompatActivity {
 
     /** Handles playback of all sound files */
     private MediaPlayer mMediaPlayer;
+
+    private AudioManager mAudioManager;
+    private AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener;
+
+    private Context mContext = NumbersActivity.this;
 
     /**
      * This listener gets triggered when the {@link MediaPlayer} has completed
@@ -32,7 +42,7 @@ public class NumbersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Direct volume key presses to control the app's sound effects
-        setVolumeControlStream(AudioManager.STREAM_MUSIC);
+        setVolumeControlStream(STREAM_MUSIC);
         setContentView(R.layout.word_list);
 
         //create array of words to be translated
@@ -64,12 +74,23 @@ public class NumbersActivity extends AppCompatActivity {
         // {@link ListView} will display list items for each {@link Word} in the list.
         listView.setAdapter(itemsAdapter);
 
+
+
         // Set a click listener to play the audio when the list item is clicked on
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 releaseMediaPlayer();
+
+                mAudioManager = (AudioManager) mContext.getSystemService(NumbersActivity.this.AUDIO_SERVICE);
+                mAudioManager.requestAudioFocus(
+                        mOnAudioFocusChangeListener,
+                        STREAM_MUSIC,
+                        AUDIOFOCUS_GAIN
+                );
+
+                Log.v("" + mContext, "Mode: " + mAudioManager.getMode());
 
                 // Get the {@link Word} object at the given position the user clicked on
                 Word word = wordsList.get(position);
