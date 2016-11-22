@@ -34,10 +34,10 @@ public class Word {
      * @param miwokTranslation of the word to be translated
      * @param imageResourceId to set image
      */
-    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
+    public Word(String defaultTranslation, String miwokTranslation, int soundResourceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
-        mImageResourceId = imageResourceId;
+        mSoundResourceId = soundResourceId;
     }
 
     /**

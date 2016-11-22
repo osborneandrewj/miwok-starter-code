@@ -65,6 +65,8 @@ public class WordAdapter extends ArrayAdapter<Word> {
         miwokTranslation.setBackgroundColor(color);
         miwokTranslation.setText(word.getMiwokTranslation());
 
+        imageView.setBackgroundColor(color);
+
         /**
          * Code for the addition of sound when user clicks a word
          */
