@@ -72,14 +72,14 @@ public class ColorsActivity extends AppCompatActivity {
         //create array of words to be translated
         final ArrayList<Word> wordsList = new ArrayList<>();
 
-        wordsList.add(new Word("red", "weṭeṭṭi", R.drawable.color_red));
-        wordsList.add(new Word("green", "chokokki", R.drawable.color_green));
-        wordsList.add(new Word("brown", "ṭakaakki", R.drawable.color_brown));
-        wordsList.add(new Word("gray", "ṭopoppi", R.drawable.color_gray));
-        wordsList.add(new Word("black", "kululli", R.drawable.color_black));
-        wordsList.add(new Word("white", "kelelli", R.drawable.color_white));
-        wordsList.add(new Word("dusty yellow", "ṭopiisә", R.drawable.color_dusty_yellow));
-        wordsList.add(new Word("mustard yellow", "chiwiiṭә", R.drawable.color_mustard_yellow));
+        wordsList.add(new Word("red", "weṭeṭṭi", R.drawable.color_red, R.raw.color_red));
+        wordsList.add(new Word("green", "chokokki", R.drawable.color_green, R.raw.color_green));
+        wordsList.add(new Word("brown", "ṭakaakki", R.drawable.color_brown, R.raw.color_brown));
+        wordsList.add(new Word("gray", "ṭopoppi", R.drawable.color_gray, R.raw.color_gray));
+        wordsList.add(new Word("black", "kululli", R.drawable.color_black, R.raw.color_black));
+        wordsList.add(new Word("white", "kelelli", R.drawable.color_white, R.raw.color_white));
+        wordsList.add(new Word("dusty yellow", "ṭopiisә", R.drawable.color_dusty_yellow, R.raw.color_dusty_yellow));
+        wordsList.add(new Word("mustard yellow", "chiwiiṭә", R.drawable.color_mustard_yellow, R.raw.color_mustard_yellow));
 
         WordAdapter itemsAdapter = new WordAdapter(this, wordsList, R.color.category_colors);
 

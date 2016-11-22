@@ -20,8 +20,10 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
 
-    /** Used to set color choice for activities */
-   private int mColorResourceId;
+    /**
+     * Used to set color choice for activities
+     */
+    private int mColorResourceId;
 
     public WordAdapter(Activity context, ArrayList<Word> arrayList, int colorChoice) {
         super(context, 0, arrayList);
@@ -65,7 +67,12 @@ public class WordAdapter extends ArrayAdapter<Word> {
         miwokTranslation.setBackgroundColor(color);
         miwokTranslation.setText(word.getMiwokTranslation());
 
+        // Set the images' background color to match the activity's color
         imageView.setBackgroundColor(color);
+
+        //Create an object of the text container and set the color to match the activity's color
+        LinearLayout textContainer = (LinearLayout) listItemView.findViewById(R.id.text_container);
+        textContainer.setBackgroundColor(color);
 
         /**
          * Code for the addition of sound when user clicks a word
